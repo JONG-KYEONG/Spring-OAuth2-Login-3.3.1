@@ -56,6 +56,7 @@ app.oauth2.authorizedRedirectUris=http://localhost:3000/oauth2/redirect,myandroi
 ```
 
 # Issue
+- Spring Security 6.x 버전에서는 보안 구성 시 람다 표현식 사용을 요구함에 따라 코드 수정하였습니다. 
 - Spring Security 6.x 버전에서 KAKAO의 경우 client-authentication-method로 client_secret_post, client_secret_basic, none 만 제공됩니다
   - POST -> client_secret_post 로 수정하였습니다.
 
