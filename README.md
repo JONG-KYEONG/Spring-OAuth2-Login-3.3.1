@@ -10,7 +10,7 @@ Spring 3.3.1 ver. Social OAuth2 Login with Google and github and kakao and Naver
 mysql> create database spring_social;
 ```
 
-- 코드는 application.properties의 설정 파일만 수정하여 사용하시면 됩니다.
+- application.properties에 발급받은 ID & secret 을 추가하여 사용할 수 있습니다.
 ```properties
 #Google OAuth
 spring.security.oauth2.client.registration.google.client-id={client-id}
