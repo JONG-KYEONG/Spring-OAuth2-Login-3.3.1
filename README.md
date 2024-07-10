@@ -3,6 +3,11 @@ Spring 3.3.1 ver. Social OAuth2 Login with Google and github and kakao and Naver
 - Spring Boot 3.x.x 버전 & Spring Security 6.x 버전에서 작동합니다.
 - 하위 버전은 아래 링크에서 지원합니다.
   - https://github.com/FhRh/Spring-OAuth2-Login
+ 
+# Issue
+- Spring Security 6.x 버전에서는 보안 구성 시 람다 표현식 사용을 요구함에 따라 코드 수정하였습니다. 
+- Spring Security 6.x 버전에서 KAKAO의 경우 client-authentication-method로 client_secret_post, client_secret_basic, none 만 제공됩니다
+  - POST -> client_secret_post 로 수정하였습니다.
 
 # Manual
 - spring_social의 이름을 가진 DB를 구축합니다.
@@ -54,11 +59,6 @@ app.auth.tokenExpirationMsec = 864000000
 app.cors.allowedOrigins=http://localhost:3000,http://localhost:8080
 app.oauth2.authorizedRedirectUris=http://localhost:3000/oauth2/redirect,myandroidapp://oauth2/redirect,myiosapp://oauth2/redirect
 ```
-
-# Issue
-- Spring Security 6.x 버전에서는 보안 구성 시 람다 표현식 사용을 요구함에 따라 코드 수정하였습니다. 
-- Spring Security 6.x 버전에서 KAKAO의 경우 client-authentication-method로 client_secret_post, client_secret_basic, none 만 제공됩니다
-  - POST -> client_secret_post 로 수정하였습니다.
 
 # Caution  
 - 이 코드는 백엔드 코드로써 동작합니다.
