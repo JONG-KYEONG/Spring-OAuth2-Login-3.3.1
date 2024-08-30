@@ -17,7 +17,7 @@ mysql> create database spring_social;
 
 ### Refresh Token
 - 리프레시 토큰을 통하여 새로운 액세스 토큰을 발급 받을 수 있습니다.
-  - POST/auth/refresh-token 헤더에 리프레시 토큰을 담아서 보내면 새로운 액세스 토큰을 발급 받을 수 있습니다.
+  - POST/auth/refresh-token url로 헤더에 리프레시 토큰을 담아서 보내면 새로운 액세스 토큰을 발급 받을 수 있습니다.
 
 ### application.properties
 - application.properties에 발급받은 ID & secret 을 추가하여 사용할 수 있습니다.
