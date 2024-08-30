@@ -15,6 +15,11 @@ Spring 3.3.1 ver. Social OAuth2 Login with Google and github and kakao and Naver
 mysql> create database spring_social;
 ```
 
+### Refresh Token
+- 리프레시 토큰을 통하여 새로운 액세스 토큰을 발급 받을 수 있습니다.
+  - POST/auth/refresh-token 헤더에 리프레시 토큰을 담아서 보내면 새로운 액세스 토큰을 발급 받을 수 있습니다.
+
+### application.properties
 - application.properties에 발급받은 ID & secret 을 추가하여 사용할 수 있습니다.
 ```properties
 #Google OAuth
@@ -56,6 +61,8 @@ spring.security.oauth2.client.provider.naver.user-name-attribute=response
 
 app.auth.tokenSecret=04ca023b39512e46d0c2cf4b48d5aac61d34302994c87ed4eff225dcf3b0a218739f3897051a057f9b846a69ea2927a587044164b7bae5e1306219d50b588cb1
 app.auth.tokenExpirationMsec = 864000000
+app.auth.refreshTokenSecret=236979CB6F1AD6B6A6184A31E6BE37DB3818CC36871E26235DD67DCFE40414928f742f1a1c2d3e4f5a6b7c8d9e0f11223344556677889900aabbccddeeff001122
+app.auth.refreshTokenExpirationMsec = 2592000000 
 app.cors.allowedOrigins=http://localhost:3000,http://localhost:8080
 app.oauth2.authorizedRedirectUris=http://localhost:3000/oauth2/redirect,myandroidapp://oauth2/redirect,myiosapp://oauth2/redirect
 ```
@@ -65,4 +72,4 @@ app.oauth2.authorizedRedirectUris=http://localhost:3000/oauth2/redirect,myandroi
   - 따라서, 전체 과정을 테스트 하기 위해서는 프론트 코드를 필요로 합니다.
   - 같은 장치에서 서버를 돌릴때, 프론트에서 접근 방식은 다음과 같습니다.
     -  로그인시 : http://localhost:8080/oauth2/authorization/{registrationId}?redirect_url=http://localhost:3000/oauth2/redirect
-    -  리다이렉션시 jwtToken을 저장하는 로직이 필요합니다.
+    -  리다이렉션시 액세스 토큰과 리프레시 토큰을 저장하는 로직이 필요합니다.
