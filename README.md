@@ -20,6 +20,11 @@ mysql> create database spring_social;
   - POST/auth/refresh-token url로 헤더에 리프레시 토큰을 담아서 보내면 새로운 액세스 토큰을 발급 받을 수 있습니다.
 
 ### application.properties
+- application.properties에 액세스 토큰과 리프레시 토큰의 유효 기간을 설정할 수 있습니다.
+```
+app.auth.tokenExpirationMsec = 864000000
+app.auth.refreshTokenExpirationMsec = 2592000000
+```
 - application.properties에 발급받은 ID & secret 을 추가하여 사용할 수 있습니다.
 ```properties
 #Google OAuth
@@ -72,4 +77,5 @@ app.oauth2.authorizedRedirectUris=http://localhost:3000/oauth2/redirect,myandroi
   - 따라서, 전체 과정을 테스트 하기 위해서는 프론트 코드를 필요로 합니다.
   - 같은 장치에서 서버를 돌릴때, 프론트에서 접근 방식은 다음과 같습니다.
     -  로그인시 : http://localhost:8080/oauth2/authorization/{registrationId}?redirect_url=http://localhost:3000/oauth2/redirect
-    -  리다이렉션시 액세스 토큰과 리프레시 토큰을 저장하는 로직이 필요합니다.
+    -  리다이렉션 예시 : http://localhost:8080/?access_token={access_token}&refresh_token={refresh_token}
+        - 리다이렉션시 액세스 토큰과 리프레시 토큰을 저장하는 로직이 필요합니다.
