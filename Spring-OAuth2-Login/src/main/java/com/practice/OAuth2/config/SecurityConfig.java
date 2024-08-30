@@ -86,7 +86,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    protected SecurityFilterChain filterChain (HttpSecurity http) throws Exception {
+    protected SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .cors(withDefaults()) // 기본 CORS 설정
                 .sessionManagement(sessionManagement ->
@@ -98,7 +98,7 @@ public class SecurityConfig {
                         exceptionHandling.authenticationEntryPoint(new RestAuthenticationEntryPoint())) // 예외 처리 설정
                 .authorizeHttpRequests(authorizeRequests ->
                         authorizeRequests
-                                .requestMatchers("/", "/error", "/favicon.ico", "/**/*.png", "/**/*.gif", "/**/*.svg", "/**/*.jpg", "/**/*.html", "/**/*.css", "/**/*.js").permitAll() // 특정 경로 허용
+                                .requestMatchers("/", "/error", "/favicon.ico", "/**", "/*.png", "/*.gif", "/*.svg", "/*.jpg", "/*.html", "/*.css", "/*.js").permitAll() // 특정 경로 허용
                                 .requestMatchers("/auth/**", "/oauth2/**").permitAll() // 인증 관련 경로 허용
                                 .anyRequest().authenticated()) // 나머지 모든 요청은 인증 필요
                 .oauth2Login(oauth2Login ->
@@ -121,4 +121,5 @@ public class SecurityConfig {
 
         return http.build();
     }
+
 }
